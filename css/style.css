@@ -7,7 +7,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
     font-size: 100%;
 	font-family: 'Open Sans', sans-serif;
-	background:#ffffff;
+  
+  
 }
 ul li,ol li{
 	font-size:14px;
@@ -36,8 +37,8 @@ input[type="submit"],.agileinfo_chat a,.w3ls_footer_grid1_left p a,.w3l_sign_in_
 }
 /*-- header --*/
 .header {
-    padding: 1em 0;
-	border-top: 3px solid #FF8D1B;
+    padding: 1em 0;	   
+    border-top: 3px solid #FF8D1B;
 }
 .w3layouts_logo{
 	float:left;
@@ -48,7 +49,7 @@ input[type="submit"],.agileinfo_chat a,.w3ls_footer_grid1_left p a,.w3l_sign_in_
 }
 .w3layouts_logo a h1{
 	font-size: 2.8em;
-    color: #212121;
+    color: #FF8D1B;
     text-transform: uppercase;
     background: url(../images/1.jpg) no-repeat 80px 6px;
     padding-right: 1.67em;
@@ -131,6 +132,7 @@ input[type="submit"],.agileinfo_chat a,.w3ls_footer_grid1_left p a,.w3l_sign_in_
 .navbar-default {
     background: none;
     border: none;
+
 }
 .navbar {
     margin-bottom: 0;
@@ -155,15 +157,17 @@ input[type="submit"],.agileinfo_chat a,.w3ls_footer_grid1_left p a,.w3l_sign_in_
 .navbar-default .navbar-nav > li > a {
     color: #fff;
     text-transform: uppercase;
+    border-right: 1px inset #ffa856;
 }
 .navbar-nav > li {
     float: left;
-    border-right: 1px dotted #fff;
+    border-right: 1px inset #ffa856;
     width:14.27%;
     text-align: center;
 }
 .w3_home_act{
-	border-left: 1px dotted #fff;
+	border-left: 1px dotted #ffa856;
+
 }
 .navbar-nav {
     float: none;

@@ -12,6 +12,7 @@ html {
 }
 body {
   margin: 0;
+  
 }
 article,
 aside,
@@ -4626,8 +4627,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   float: left;
   padding: 6px 12px;
   margin-left: -1px;
-  line-height: 1.42857143;
-  color: #337ab7;
+  line-height: 1.42857143; 
+  color: #FF8D1B;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -4647,7 +4648,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: #23527c;
+  color: #212121;
   background-color: #eee;
   border-color: #ddd;
 }
@@ -4658,10 +4659,10 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   z-index: 2;
-  color: #fff;
+  color: #212121;
   cursor: default;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #FF8D1B;
+  border-color: #FF8D1B;
 }
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
@@ -4669,7 +4670,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus {
-  color: #777;
+  color: #FF8D1B;
   cursor: not-allowed;
   background-color: #fff;
   border-color: #ddd;
@@ -4742,6 +4743,71 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   cursor: not-allowed;
   background-color: #fff;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto; 
+}
+
+.contenedor .articulos {
+  margin-bottom: 20px;
+}
+
+.contenedor .articulos ul {
+  list-style: none;
+}
+
+.contenedor .articulos ul li {
+  padding:15px 10px;
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.paginacion ul {
+  list-style: none;
+}
+
+.paginacion ul li {
+  display: inline-block;
+  margin-right: 10px; 
+}
+
+.paginacion ul .active a {
+  background: #ce7f08;
+}
+
+.paginacion ul .disabled {
+  background: #c8c8c8;
+  display: inline-block;
+  font-family: "Oswald", Arial, helvetica, sans-serif;
+  padding: 15px 25px;
+  cursor:not-allowed;
+  color:#fff;
+  text-decoration: none;
+}
+
+.paginacion ul li a {
+  display: inline-block;
+  font-family: "Oswald", Arial, helvetica, sans-serif;
+  padding: 15px 25px;
+  background: #424242;
+  color:#fff;
+  text-decoration: none;
+}
+
+.paginacion ul li a:hover {
+  text-decoration: none;
+  background: #3299bb;
+}
+
 .label {
   display: inline;
   padding: .2em .6em .3em;
