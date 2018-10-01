@@ -37,9 +37,9 @@
 						<ul class="nav navbar-nav">
 							<li><a href="index.php"><i class="fas fa-home"></i> Inicio</a></li>
 							<li><a href="conocenos.php">Conócenos</a></li>
-							<li class="active"><a href="cartelera.php">Cartelera</a></li>
+							<li><a href="cartelera.php">Cartelera</a></li>
 							<li><a href="cafeteria.php">Cafetería</a></li>
-							<li><a href="promociones.php">Promociones</a></li>
+							<li class="active"><a href="promociones.php">Promociones</a></li>
 							<li><a href="proxestrenos.php">Próximos estrenos</a></li>
 						</ul>
 					</nav>
@@ -61,62 +61,86 @@
   </nav>
 </div>
 <div class="faq">
-	<h4 class="latest-text w3_latest_text">en cartelera</h4>
+	<h4 class="latest-text w3_latest_text">Promociones</h4>
 			<div class="container">
-				
 				<div class="agileinfo-news-top-grids">
 					<div  class="wthree-top-news-left">
 						<div style="background: #FF8D1B;" class="wthree-news-right-heading">
-								<h3 ><i class="fas fa-film"></i> Funciones</h3>
+								<h3 > Ven y disfruta de nuestras promociones!!</h3>
 							</div>
 						<div style="background: #FFFFFF;" class="wthree-news-left">
 							</br>
-				<div id="myTabContent" class="tab-content">
-					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-						<div class="w3_agile_featured_movies">
-							
-							<?php foreach($carteleras as $cartelera): ?>
-							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="pelicula.php?id=<?php echo $cartelera['id']; ?>" class="hvr-shutter-out-horizontal"><img src="<?php echo $cartelera['ruta'].$cartelera['nombrearchivo']; ?>" title="album-name" class="img-responsive" alt=" " />
-									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-								</a>
-								<div class="mid-1 agileits_w3layouts_mid_1_home">
-									<div class="w3l-movie-text">
-										<h6><a href="pelicula.php?id=<?php echo $cartelera['id']; ?>"><?php echo $cartelera['titulo']; ?></a></h6>							
+				<div class="flexslider">
+					<ul class="slides">
+						<?php foreach($promos as $promo): ?>
+						<li>
+							<div class="col-md-7 agile_tv_series_grid">
+									<div class="w3ls_market_video_grid1">
+										<img src="<?php echo $promo['ruta'].$promo['imagenslid']; ?>" alt=" " class="img-responsive" />
 									</div>
-									<div class="mid-2 agile_mid_2_home">
-										<p>Horario:</p>
-										<div class="block-stars">
-											<ul class="w3l-ratings">
-												<li><a href="#"><i ><?php echo $cartelera['horario']; ?></i></a></li>
-											</ul>
-										</div>
-										
-										<div class="clearfix"></div>
+								</div>
+								<div class="col-md-5 agile_tv_series_grid">
+									<div class="w3ls_market_video_grid1">
+										<p style = "text-align: center;"></br><h2 style = "text-align: center;"><?php echo $promo['nombre']; ?></h2></br>
+
+										<?php echo $promo['descripcion']; ?>
+										</br></br>
+										<b>Vigencia:</b> <?php echo $promo['vigenciainicio']. " - ".$promo['vigenciafinal']; ?>
+									</p>
 									</div>
-								</br>
-								
-									<div class="button_cont" align="center"><a class="example_e" href="reserva.php" target="_blank" rel="nofollow noopener">Reserva</a></div>
-								</div>
-								<?php 
-									if($cartelera['estreno'] == 1)
-										 { ?>
-								<div class="ribben">
-									<p>Estreno</p>
-								</div>
-								<?php } ?>
-							</div>
-							<?php endforeach; ?>
-							
-						</div>
-					</div>
-					
-						</div>
+								</div>	
+						</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
 						<div class="clearfix"> </div>
+					</div>
+				</div>
 			</div>
-		</div>
 	</div>
 </div>			
 </div>
-
+<!-- flexSlider -->
+				<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+				<script defer src="js/jquery.flexslider.js"></script>
+				<script type="text/javascript">
+				$(window).load(function(){
+				  $('.flexslider').flexslider({
+					animation: "slide",
+					start: function(slider){
+					  $('body').removeClass('loading');
+					}
+				  });
+				});
+			  </script>
+			<!-- //flexSlider -->
+		</div>
+	</div>
+	<!-- pop-up-box -->  
+	
+	<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+	<!--//pop-up-box -->
+	
+	<div id="small-dialog1" class="mfp-hide">
+		<iframe src="https://player.vimeo.com/video/148284736"></iframe>
+	</div>
+	<div id="small-dialog2" class="mfp-hide">
+		<iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
+	</div>
+	<script>
+		$(document).ready(function() {
+		$('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
+			type: 'inline',
+			fixedContentPos: false,
+			fixedBgPos: true,
+			overflowY: 'auto',
+			closeBtnInside: true,
+			preloader: false,
+			midClick: true,
+			removalDelay: 300,
+			mainClass: 'my-mfp-zoom-in'
+		});
+																		
+		});
+	</script>
 <?php require 'footer.php'; ?>

@@ -215,12 +215,12 @@
 							
 							<?php foreach($carteleras as $cartelera): ?>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="pelicula.php?id=<?php echo $cartelera['id']; ?>"" class="hvr-shutter-out-horizontal"><img src="<?php echo $cartelera['ruta'].$cartelera['nombrearchivo']; ?>" title="album-name" class="img-responsive" alt=" " />
+								<a href="pelicula.php?id=<?php echo $cartelera['id']; ?>" class="hvr-shutter-out-horizontal"><img src="<?php echo $cartelera['ruta'].$cartelera['nombrearchivo']; ?>" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
 									<div class="w3l-movie-text">
-										<h6><a href="single.html"><?php echo $cartelera['titulo']; ?></a></h6>							
+										<h6><a href="pelicula.php?id=<?php echo $cartelera['id']; ?>"><?php echo $cartelera['titulo']; ?></a></h6>							
 									</div>
 									<div class="mid-2 agile_mid_2_home">
 										<p>Horario:</p>

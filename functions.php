@@ -38,6 +38,11 @@ function obtener_estrenos($conexion){
 	$sentencia->execute();
 	return $sentencia->fetchAll();
 }
+function obtener_promociones($conexion){
+	$sentencia = $conexion->prepare("SELECT * FROM promociones;");
+	$sentencia->execute();
+	return $sentencia->fetchAll();
+}
 function obtener_direcciones($conexion){
 	$sentencia = $conexion->prepare("SELECT * FROM direcciones;");
 	$sentencia->execute();
