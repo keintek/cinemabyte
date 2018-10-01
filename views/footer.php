@@ -22,7 +22,7 @@
 						<a href="faq.html">Conócenos</a>
 					</li>
 					<li>
-						<a href="contact.html">Contáctanos</a>
+						<a href="contacto.php">Contáctanos</a>
 					</li>
 				</ul>
 			</div>

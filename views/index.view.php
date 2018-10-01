@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="list-css/list.css" type="text/css" media="all" />
 <!-- //list-css -->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/modal-video.min.css">
+<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="js/modal-video.js"></script>
 <!-- //bootstrap-pop-up -->
 <!-- nav -->
 	<div class="movies_nav">
@@ -23,12 +26,12 @@
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.php"><i class="fas fa-home"></i> Inicio</a></li>
+							<li  class="active"><a href="index.php"><i class="fas fa-home"></i> Inicio</a></li>
 							<li><a href="conocenos.php">Conócenos</a></li>
-							<li><a href="series.html">Cartelera</a></li>
-							<li><a href="news.html">Cafetería</a></li>
-							<li><a href="list.html">Promociones</a></li>
-							<li><a href="list.html">Próximos estrenos</a></li>
+							<li><a href="cartelera.php">Cartelera</a></li>
+							<li><a href="cafeteria.php">Cafetería</a></li>
+							<li><a href="promociones.php">Promociones</a></li>
+							<li><a href="proxestrenos.php">Próximos estrenos</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -64,8 +67,7 @@
 		<ul>
 			<li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
 			<li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
-			<li class="w3_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
-			<li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>				  
+			<li class="w3_g_plus"><a href="#">Youtube <i class="fab fa-youtube"></i></a></li>				  
 		</ul>
   </nav>
 </div>
@@ -195,21 +197,25 @@
 				</div>
 			</div>
 	</div>
-<!-- general -->
-	<div class="general">
-		<h4 class="latest-text w3_latest_text">en cartelera</h4>
-		<div class="container">
-			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-				<ul id="myTab" class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Funciones</a></li>
-				</ul>
+
+<div class="faq">
+	<h4 class="latest-text w3_latest_text">en cartelera</h4>
+			<div class="container">
+				
+				<div class="agileinfo-news-top-grids">
+					<div  class="wthree-top-news-left">
+						<div style="background: #FF8D1B;" class="wthree-news-right-heading">
+								<h3 ><i class="fas fa-film"></i> Funciones</h3>
+							</div>
+						<div style="background: #FFFFFF;" class="wthree-news-left">
+							</br>
 				<div id="myTabContent" class="tab-content">
 					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 						<div class="w3_agile_featured_movies">
 							
 							<?php foreach($carteleras as $cartelera): ?>
 							<div class="col-md-2 w3l-movie-gride-agile">
-								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="<?php echo $cartelera['ruta'].$cartelera['nombrearchivo']; ?>" title="album-name" class="img-responsive" alt=" " />
+								<a href="pelicula.php?id=<?php echo $cartelera['id']; ?>"" class="hvr-shutter-out-horizontal"><img src="<?php echo $cartelera['ruta'].$cartelera['nombrearchivo']; ?>" title="album-name" class="img-responsive" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 								</a>
 								<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -239,19 +245,24 @@
 						</div>
 					</div>
 					
-						</div>
+				</div>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-<!-- //general -->
-<!-- Latest-tv-series -->
-	<div class="Latest-tv-series">
-		<h4 class="latest-text w3_latest_text w3_home_popular">Próximos estrenos</h4>
-		<div class="container">
-			<section class="slider">
+		</div>			
+</div>	
+<div class="faq">
+	<h4 class="latest-text w3_latest_text">Próximos estrenos</h4>
+			<div class="container">
+				
+				<div class="agileinfo-news-top-grids">
+					<div  class="wthree-top-news-left">
+						<div style="background: #FF8D1B;" class="wthree-news-right-heading">
+								<h3 ><i class="fas fa-video"></i> Próximamente</h3>
+							</div>
+						<div style="background: #FFFFFF;" class="wthree-news-left">
+							</br>
 				<div class="flexslider">
 					<ul class="slides">
 						<?php foreach($estrenos as $estreno): ?>
@@ -260,9 +271,13 @@
 								<div class="col-md-6 agile_tv_series_grid_left">
 									<div class="w3ls_market_video_grid1">
 										<img src="<?php echo $estreno['ruta'].$estreno['nombrearchivo']; ?>" alt=" " class="img-responsive" />
-										<a class="w3_play_icon" href="#small-dialog">
+										
+										<a class="w3_play_icon" href="#small-dialog<?php echo $estreno['id']; ?>">
 											<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
 										</a>
+										<div id="small-dialog<?php echo $estreno['id']; ?>" class="mfp-hide">
+											<iframe src="//www.youtube.com/embed/<?php echo $estreno['link']; ?>"></iframe>
+										</div>
 									</div>
 								</div>
 								<div class="col-md-6 agile_tv_series_grid_right">
@@ -273,19 +288,20 @@
 										<span>Genero:<label></label> </span>
 										<a><?php echo $estreno['genero']; ?></a>						
 									</p>
-									<p class="fexi_header_para fexi_header_para1"><span>Calificación:<label></label></span>
-										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
-										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
-										<a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a>
-										<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
-										<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
-									</p>
+									
 								</div>
 						</li>
 						<?php endforeach; ?>
 					</ul>
 				</div>
-			</section>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>			
+</div>
+<!-- Latest-tv-series -->
+	
 
 			<!-- flexSlider -->
 				<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
@@ -304,11 +320,10 @@
 		</div>
 	</div>
 	<!-- pop-up-box -->  
-		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+	
+	<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
 	<!--//pop-up-box -->
-	<div id="small-dialog" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/164819130?title=0&byline=0"></iframe>
-	</div>
+	
 	<div id="small-dialog1" class="mfp-hide">
 		<iframe src="https://player.vimeo.com/video/148284736"></iframe>
 	</div>

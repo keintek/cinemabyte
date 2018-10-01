@@ -38,41 +38,36 @@ function obtener_estrenos($conexion){
 	$sentencia->execute();
 	return $sentencia->fetchAll();
 }
-
+function obtener_direcciones($conexion){
+	$sentencia = $conexion->prepare("SELECT * FROM direcciones;");
+	$sentencia->execute();
+	return $sentencia->fetchAll();
+}
+function obtener_mails($conexion){
+	$sentencia = $conexion->prepare("SELECT * FROM emails;");
+	$sentencia->execute();
+	return $sentencia->fetchAll();
+}
+function obtener_redes($conexion){
+	$sentencia = $conexion->prepare("SELECT * FROM redes;");
+	$sentencia->execute();
+	return $sentencia->fetchAll();
+}
+function obtener_telefonos($conexion){
+	$sentencia = $conexion->prepare("SELECT * FROM telefonos;");
+	$sentencia->execute();
+	return $sentencia->fetchAll();
+}
 function id_articulo($id){
 	return (int)limpiarDatos($id);
 }
 
-function obtener_post_por_id($conexion, $id){
-	$resultado = $conexion->query("SELECT * FROM equipos WHERE id = $id LIMIT 1");
+function obtener_pelicula($conexion, $id){
+	$resultado = $conexion->query("SELECT * FROM peliculas WHERE id = $id LIMIT 1");
 	$resultado = $resultado->fetchAll();
 	return ($resultado) ? $resultado : false;
 }
-function obtenerpatron($conexion, $id){
-	$resultado = $conexion->query("SELECT * FROM patrones WHERE id = $id LIMIT 1");
-	$resultado = $resultado->fetchAll();
-	return ($resultado) ? $resultado : false;
-}
-function obtener_calibracion($conexion, $id){
-	$resultado = $conexion->query("SELECT * FROM calibracion WHERE folio = $id LIMIT 1");
-	$resultado = $resultado->fetchAll();
-	return ($resultado) ? $resultado : false;
-}
-function obtener_verificacion($conexion, $id){
-	$resultado = $conexion->query("SELECT * FROM verificacion WHERE folio = $id LIMIT 1");
-	$resultado = $resultado->fetchAll();
-	return ($resultado) ? $resultado : false;
-}
-function obtener_mantenimiento($conexion, $id){
-	$resultado = $conexion->query("SELECT * FROM mantenimiento WHERE Folio = $id LIMIT 1");
-	$resultado = $resultado->fetchAll();
-	return ($resultado) ? $resultado : false;
-}
-function obtener_confirmacion($conexion, $id){
-	$resultado = $conexion->query("SELECT * FROM confirmacion WHERE Folio = $id LIMIT 1");
-	$resultado = $resultado->fetchAll();
-	return ($resultado) ? $resultado : false;
-}
+
 
 function fecha($fecha){
 	$timestamp = strtotime($fecha);

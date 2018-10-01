@@ -36,8 +36,8 @@
 					<nav>
 						<ul class="nav navbar-nav">
 							<li><a href="index.php"><i class="fas fa-home"></i> Inicio</a></li>
-							<li class="active"><a href="conocenos.php">Conócenos</a></li>
-							<li><a href="cartelera.php">Cartelera</a></li>
+							<li><a href="conocenos.php">Conócenos</a></li>
+							<li class="active"><a href="cartelera.php">Cartelera</a></li>
 							<li><a href="cafeteria.php">Cafetería</a></li>
 							<li><a href="promociones.php">Promociones</a></li>
 							<li><a href="proxestrenos.php">Próximos estrenos</a></li>
@@ -61,29 +61,62 @@
   </nav>
 </div>
 <div class="faq">
-	<h4 class="latest-text w3_latest_text">conócenos</h4>
+	<h4 class="latest-text w3_latest_text">en cartelera</h4>
 			<div class="container">
 				
 				<div class="agileinfo-news-top-grids">
 					<div  class="wthree-top-news-left">
-						<div style="background: #FFFFFF;" class="wthree-news-left">
-							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-								<p>
-									<h1>Nosotros</h1></br>
-									Cinema Byte es una asociación civil privada dedicada a promover entretenimiento del público en la región a través de la difusión del cine de alta factura artística y cultural. Cuenta con profesionales de más de 20 años de experiencia en la programación de cine; goza del reconocimiento del sector público y privado, así como de empresas del área de la distribución nacional e internacional  y compañías de exhibición cinematográfica nacionales las cuales, entre otros, son factores claves de  apoyo en la producción de muestras y festivales.</br></br>
-									<h1>Misión</h1></br> Estamos dedicados a ser los mejores en la prestación de servicios orientados al desarrollo y la promoción de la cultura cinematográfica, haciendo énfasis en la expansión del mercado mexicano hacia las obras de interés artístico, de procedencia diversa</br></br><h1>Visión</h1></br>Ser reconocido como líder en la promoción de la cultura cinematográfica en México, con una programación inteligente, versátil y de calidad. Llevar el disfrute del mejor cine a la mayor cantidad de público, para colocar la cultura y entretenimiento al alcance de todos los estratos y edades.
-								</p>
-							</br>
-							</br>
-								<a href="contacto.php" class="myButtonx">Contáctanos</a>
-							</br>
+						<div style="background: #FF8D1B;" class="wthree-news-right-heading">
+								<h3 ><i class="fas fa-film"></i> Funciones</h3>
 							</div>
+						<div style="background: #FFFFFF;" class="wthree-news-left">
+							</br>
+				<div id="myTabContent" class="tab-content">
+					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+						<div class="w3_agile_featured_movies">
+							
+							<?php foreach($carteleras as $cartelera): ?>
+							<div class="col-md-2 w3l-movie-gride-agile">
+								<a href="single.html" class="hvr-shutter-out-horizontal"><img src="<?php echo $cartelera['ruta'].$cartelera['nombrearchivo']; ?>" title="album-name" class="img-responsive" alt=" " />
+									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+								</a>
+								<div class="mid-1 agileits_w3layouts_mid_1_home">
+									<div class="w3l-movie-text">
+										<h6><a href="single.html"><?php echo $cartelera['titulo']; ?></a></h6>							
+									</div>
+									<div class="mid-2 agile_mid_2_home">
+										<p>Horario:</p>
+										<div class="block-stars">
+											<ul class="w3l-ratings">
+												<li><a href="#"><i ><?php echo $cartelera['horario']; ?></i></a></li>
+											</ul>
+										</div>
+										
+										<div class="clearfix"></div>
+									</div>
+								</br>
+								
+									<div class="button_cont" align="center"><a class="example_e" href="add-website-here" target="_blank" rel="nofollow noopener">Reserva</a></div>
+								</div>
+								<?php 
+									if($cartelera['estreno'] == 1)
+										 { ?>
+								<div class="ribben">
+									<p>Estreno</p>
+								</div>
+								<?php } ?>
+							</div>
+							<?php endforeach; ?>
+							
 						</div>
 					</div>
 					
-						
-				</div>
-					<div class="clearfix"> </div>
+						</div>
+						<div class="clearfix"> </div>
 			</div>
+		</div>
+	</div>
+</div>			
 </div>
+
 <?php require 'footer.php'; ?>

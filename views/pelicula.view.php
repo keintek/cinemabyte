@@ -17,6 +17,13 @@
 		});
 	});
 </script>
+<script src="js/simplePlayer.js"></script>
+<script>
+	$("document").ready(function() {
+		$("#video").simplePlayer();
+	});
+</script>
+
 <!-- start-smoth-scrolling -->
 <!-- //bootstrap-pop-up -->
 <!-- nav -->
@@ -36,7 +43,7 @@
 					<nav>
 						<ul class="nav navbar-nav">
 							<li><a href="index.php"><i class="fas fa-home"></i> Inicio</a></li>
-							<li class="active"><a href="conocenos.php">Conócenos</a></li>
+							<li><a href="conocenos.php">Conócenos</a></li>
 							<li><a href="cartelera.php">Cartelera</a></li>
 							<li><a href="cafeteria.php">Cafetería</a></li>
 							<li><a href="promociones.php">Promociones</a></li>
@@ -61,29 +68,32 @@
   </nav>
 </div>
 <div class="faq">
-	<h4 class="latest-text w3_latest_text">conócenos</h4>
+	<h4 class="latest-text w3_latest_text">Información de pelicula</h4>
 			<div class="container">
 				
 				<div class="agileinfo-news-top-grids">
 					<div  class="wthree-top-news-left">
-						<div style="background: #FFFFFF;" class="wthree-news-left">
-							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-								<p>
-									<h1>Nosotros</h1></br>
-									Cinema Byte es una asociación civil privada dedicada a promover entretenimiento del público en la región a través de la difusión del cine de alta factura artística y cultural. Cuenta con profesionales de más de 20 años de experiencia en la programación de cine; goza del reconocimiento del sector público y privado, así como de empresas del área de la distribución nacional e internacional  y compañías de exhibición cinematográfica nacionales las cuales, entre otros, son factores claves de  apoyo en la producción de muestras y festivales.</br></br>
-									<h1>Misión</h1></br> Estamos dedicados a ser los mejores en la prestación de servicios orientados al desarrollo y la promoción de la cultura cinematográfica, haciendo énfasis en la expansión del mercado mexicano hacia las obras de interés artístico, de procedencia diversa</br></br><h1>Visión</h1></br>Ser reconocido como líder en la promoción de la cultura cinematográfica en México, con una programación inteligente, versátil y de calidad. Llevar el disfrute del mejor cine a la mayor cantidad de público, para colocar la cultura y entretenimiento al alcance de todos los estratos y edades.
-								</p>
-							</br>
-							</br>
-								<a href="contacto.php" class="myButtonx">Contáctanos</a>
-							</br>
+						<div style="background: #FF8D1B;" class="wthree-news-right-heading">
+								<h1 ><i class="fas fa-film"></i> <?php echo $pelicula['nombre']; ?></h1>
 							</div>
+						<div style="background: #FFFFFF;" class="wthree-news-left">
+							</br>
+					<div id="myTabContent" class="tab-content">
+					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+						<div class="video-grid-single-page-agileits">
+							<div data-video="<?php echo $pelicula['link']; ?>" id="video"> <img src="<?php echo $pelicula['ruta'].$pelicula['archivo']; ?>" alt="" class="img-responsive" /> </div>
 						</div>
 					</div>
 					
-						
-				</div>
-					<div class="clearfix"> </div>
+						<p class="fexi_header_para"><span>Fecha de Estreno:<label></label></span> </br><?php echo $pelicula['fecha']; ?> </p>
+						<p class="fexi_header_para"><span>Genero:<label></label></span> </br><?php echo $pelicula['genero']; ?> </p>
+						<p class="fexi_header_para"><span>Sinopsis:<label></label></span> </br><?php echo $pelicula['sinopsis']; ?> </p>
+						</div>
+						<div class="clearfix"> </div>
 			</div>
+		</div>
+	</div>
+</div>			
 </div>
+
 <?php require 'footer.php'; ?>

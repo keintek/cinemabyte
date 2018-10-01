@@ -238,7 +238,7 @@
       },
       directionNav: {
         setup: function() {
-          var directionNavScaffold = $('<ul class="' + namespace + 'direction-nav"><li><a class="' + namespace + 'prev" href="#">' + vars.prevText + '</a></li><li><a class="' + namespace + 'next" href="#">' + vars.nextText + '</a></li></ul>');
+          var directionNavScaffold = $('<ul style="display:none;" class="' + namespace + 'direction-nav"><li><a class="' + namespace + 'prev">' + vars.prevText + '</a></li><li><a class="' + namespace + 'next">' + vars.nextText + '</a></li></ul>');
         
           // CONTROLSCONTAINER:
           if (slider.controlsContainer) {
