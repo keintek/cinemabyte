@@ -1,4 +1,5 @@
-<?php require 'header.php'; ?>
+<?php require 'header.php'; 
+?>
 <!-- news-css -->
 <link rel="stylesheet" href="news-css/news.css" type="text/css" media="all" />
 <!-- //news-css -->

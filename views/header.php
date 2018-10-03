@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -71,13 +72,37 @@
 			
 			<div class="w3l_sign_in_register">
 				<ul>
-					<li><i class="fa fa-phone" aria-hidden="true"></i> 775 190 4423</li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal">Iniciar Sesión</a></li>
+					<?php if (isset($_SESSION['usuario'])) 
+					{ ?>
+						<li><i class="fa fa-user" aria-hidden="true"></i><?php echo "Bienvenido ".$usuario["nombre"]; ?></li>
+						<li><a href="cerrarsesion.php">Cerrar Sesión</a></li> <div class="clearfix"> </div>
+					<?php if ($usuario["tipo"] == 4 || $usuario["tipo"] == 5){
+								?><br><li><a href="padmin/dashboard.php">Panel de Administración</a></li> <?php 
+							}	}else{ ?>
+					<?php  ?>
+						<li><i class="fa fa-phone" aria-hidden="true"></i>(791) 91 557 56</li>
+						<li><a href="#" data-toggle="modal" data-target="#myModal">Iniciar Sesión</a></li>
+					<?php } 
+					?>
+					
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
+	<?php if(!empty($errores)): ?>
+		<div class="w3l_sign_in_register">
+			<ul>
+				
+				<li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><?php echo $errores; ?></a></li>
+				<br>
+			</ul>
+		</div>	
+		<br>			
+		<div class="clearfix"> </div>	
+		<br>		
+			<?php endif; ?>
+	
 <!-- //header -->
 <!-- bootstrap-pop-up -->
 	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
@@ -97,19 +122,24 @@
 							  <div class="form">
 								<h3>Iniciar sesión con tu cuenta</h3>
 								<form action="#" method="post">
-								  <input type="text" name="Username" placeholder="Nombre de usuario" required="">
-								  <input type="password" name="Password" placeholder="Contraseña" required="">
-								  <input type="submit" value="Aceptar">
+								  <input type="text" name="loginuser" placeholder="Nombre de usuario" required="">
+								  <input type="password" name="passuser" placeholder="Contraseña" required="">
+								  <input type="submit" value="Aceptar" name="insesion">
+
 								</form>
 							  </div>
 							  <div class="form">
 								<h3>Crear una cuenta nueva</h3>
 								<form action="#" method="post">
-								  <input type="text" name="Username" placeholder="Nombre de usuario" required="">
-								  <input type="password" name="Password" placeholder="Contraseña" required="">
-								  <input type="email" name="Email" placeholder="E-Mail" required="">
-								  <input type="text" name="Phone" placeholder="Teléfono" required="">
-								  <input type="submit" value="Registrar">
+								  <input type="text" name="usuario" placeholder="Nombre de usuario" required="">
+								  <input type="text" name="nombre" placeholder="Nombre" required="">
+								  <input type="text" name="apellidop" placeholder="Apellido Paterno" required="">
+								  <input type="text" name="apellidom" placeholder="Apellido Materno" required="">
+								  <input type="password" name="registpass1" placeholder="Contraseña" required="">
+								  <input type="password" name="registpass2" placeholder="Repite tu Contraseña" required="">
+								  <input type="email" name="email" placeholder="E-Mail" required="">
+								  <input type="text" name="telefono" placeholder="Teléfono" required="">
+								  <input type="submit" value="Registrar" name="registro">
 								</form>
 							  </div>
 							  <div class="cta"><a href="#">¿Olvidaste tu contraseña?</a></div>
@@ -117,6 +147,7 @@
 						</div>
 					</div>
 				</section>
+
 			</div>
 		</div>
 	</div>

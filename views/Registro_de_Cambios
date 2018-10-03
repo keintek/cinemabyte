@@ -11,4 +11,9 @@
 29/09/2018 --- Agregada seccion conocenos 
 30/09/2018 --- Agregada seccion contacto
 30/09/2018 --- Agregada seccion prox_estrenos
-31/09/2019 --- agregada seccion promociones
+31/09/2018 --- agregada seccion promociones
+31/09/2018 --- Agregada seccion cafeteria
+01/09/2018 --- Agregado sistema de registro
+02/09/2018 --- Agregado sistema de login
+03/09/2018 --- Implementacion de login y registro en todas las seccion
+03/09/2018 --- Agregada redireccionamiento al tener error en conexion de bd 
