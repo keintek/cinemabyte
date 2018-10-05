@@ -20,10 +20,10 @@ if (isset($_SESSION['usuario']))
     header('Location: ../postnoadmin.php');
   }
 }
+$carteleras = obtener_carteleras($conexion);
 
 
-
-require 'views/dashboard.view.php';
+require 'views/dashcartelera.view.php';
 
 
 ?>

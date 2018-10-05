@@ -1,7 +1,7 @@
 <?php require 'header.php' ?>
 <body class="">
   <div class="wrapper ">
-      <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
+      <div class="sidebar" data-color="azure" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -14,13 +14,13 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
+          <li class="nav-item">
             <a class="nav-link" href="./dashboard.php">
               <i class="material-icons">dashboard</i>
               <p>Panel de Control</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active">
             <a class="nav-link" href="./dashcafeteria.php">
               <i class="material-icons">local_cafe</i>
               <p>Cafetería</p>
@@ -82,7 +82,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#">Panel de Control</a>
+            <a class="navbar-brand" href="#">Cafetería</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -125,98 +125,118 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            
-            
-           
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
-                  <div class="card-icon">
-                    <i class="fa fa-twitter"></i>
-                  </div>
-                  <p class="card-category">Followers</p>
-                  <h3 class="card-title">+245</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">update</i> Just Updated
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
             <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-success">
-                  <div class="ct-chart" id="dailySalesChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Daily Sales</h4>
-                  <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4 minutes ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-warning">
-                  <div class="ct-chart" id="websiteViewsChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Email Subscriptions</h4>
-                  <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          <div class="row">
+                        <button class="btn btn-info btn-block" onclick="demo.showNotification('top','left')">Nuevo Combo</button>
+                      </div>
             <div class="col-md-12">
               <div class="card">
-                <div class="card-header card-header-warning">
-                  <h4 class="card-title">Employees Stats</h4>
-                  <p class="card-category">New employees on 15th September, 2016</p>
+                <div class="card-header card-header-info">
+                  <h4 class="card-title ">Lista de Combos</h4>
+                  <p class="card-category"> Elige el combo que deseas modificar</p>
                 </div>
-                <div class="card-body table-responsive">
-                  <table class="table table-hover">
-                    <thead class="text-warning">
-                      <th>ID</th>
-                      <th>Nombre</th>
-                      <th>Ventas</th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Dakota Rice</td>
-                        <td>$36,738</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Minerva Hooper</td>
-                        <td>$23,789</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Sage Rodriguez</td>
-                        <td>$56,142</td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Philip Chaney</td>
-                        <td>$38,735</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-info">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Nombre
+                        </th>
+                        <th>
+                          Ruta
+                        </th>
+                        <th>
+                          Nombre de Imagen
+                        </th>
+                        
+                      </thead>
+                      <tbody>
+                        <?php foreach($combos as $combo): ?>
+                        <tr>
+                          <td>
+                            <?php echo $combo['id']; ?>
+                          </td>
+                          <td>
+                            <?php echo $combo['titulo']; ?>
+                          </td>
+                          <td>
+                            <?php echo $combo['ruta']; ?>
+                          </td>
+                          <td>
+                            <?php echo $combo['archivo']; ?>
+                          </td>
+                          <td class="text-primary">
+                            <a style='text-decoration:none;color:DodgerBlue;' href="editarcombo.php?id=<?php echo $combo['id']; ?>">Editar</a>
+                          </td>
+                        </tr>
+                        <?php endforeach; ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+                        <button class="btn btn-info btn-block" onclick="demo.showNotification('top','left')">Nuevo Producto</button>
+                      </div>
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-info">
+                  <h4 class="card-title ">Lista de Productos</h4>
+                  <p class="card-category"> Elige el producto que deseas modificar</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-info">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Nombre
+                        </th>
+                        <th>
+                          Ruta
+                        </th>
+                        <th>
+                          Nombre de Imagen
+                        </th>
+                        <th>
+                          Precio
+                        </th>
+                      </thead>
+                      <tbody>
+                        <?php foreach($productos as $producto): ?>
+                        <tr>
+                          <td>
+                            <?php echo $producto['id']; ?>
+                          </td>
+                          <td>
+                            <?php echo $producto['nombre']; ?>
+                          </td>
+                          <td>
+                            <?php echo $producto['ruta']; ?>
+                          </td>
+                          <td>
+                            <?php echo $producto['archivo']; ?>
+                          </td>
+                          <td>
+                            <?php echo $producto['precio']; ?>
+                          </td>
+                          <td class="text-primary">
+                            <a style='text-decoration:none;color:DodgerBlue;' href="editarproducto.php?id=<?php echo $producto['id']; ?>">Editar</a>
+                          </td>
+                        </tr>
+                        <?php endforeach; ?>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>

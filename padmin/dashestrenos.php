@@ -20,10 +20,10 @@ if (isset($_SESSION['usuario']))
     header('Location: ../postnoadmin.php');
   }
 }
+$estrenos = obtener_estrenos($conexion);
 
 
-
-require 'views/dashboard.view.php';
+require 'views/dashestrenos.view.php';
 
 
 ?>

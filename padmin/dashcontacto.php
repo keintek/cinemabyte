@@ -20,10 +20,12 @@ if (isset($_SESSION['usuario']))
     header('Location: ../postnoadmin.php');
   }
 }
+$direcciones = obtener_direcciones($conexion);
+$mails = obtener_mails($conexion);
+$redes = obtener_redes($conexion);
+$telefonos = obtener_telefonos($conexion);
 
-
-
-require 'views/dashboard.view.php';
+require 'views/dashcontacto.view.php';
 
 
 ?>

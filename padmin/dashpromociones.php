@@ -20,10 +20,10 @@ if (isset($_SESSION['usuario']))
     header('Location: ../postnoadmin.php');
   }
 }
+$promociones = obtener_promociones($conexion);
 
 
-
-require 'views/dashboard.view.php';
+require 'views/dashpromociones.view.php';
 
 
 ?>

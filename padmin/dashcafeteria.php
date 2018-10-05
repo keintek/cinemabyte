@@ -20,10 +20,11 @@ if (isset($_SESSION['usuario']))
     header('Location: ../postnoadmin.php');
   }
 }
+$combos = obtener_cafcombos($conexion);
+$productos = obtener_cafproducts($conexion);
 
 
-
-require 'views/dashboard.view.php';
+require 'views/dashcafeteria.view.php';
 
 
 ?>

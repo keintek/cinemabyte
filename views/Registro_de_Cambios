@@ -16,4 +16,13 @@
 01/09/2018 --- Agregado sistema de registro
 02/09/2018 --- Agregado sistema de login
 03/09/2018 --- Implementacion de login y registro en todas las seccion
-03/09/2018 --- Agregada redireccionamiento al tener error en conexion de bd 
+03/09/2018 --- Agregada redireccionamiento al tener error en conexion de bd
+03/09/2018 --- Creacion de panel de administracion
+03/09/2018 --- Panel de Control (Panel de Administracion)
+03/09/2018 --- Cafeteria (Panel de Administracion)
+03/09/2018 --- Cartelera (Panel de Administracion)
+04/09/2018 --- Contacto (Panel de Administracion)
+04/09/2018 --- Estrenos (Panel de Administracion)
+04/09/2018 --- PagPrincipal (Panel de Administracion)
+05/09/2018 --- promociones (Panel de Administracion)
+05/09/2018 --- usuarios (Panel de Administracion)

@@ -20,10 +20,15 @@ if (isset($_SESSION['usuario']))
     header('Location: ../postnoadmin.php');
   }
 }
+$articulos = $conexion->prepare("
+	SELECT SQL_CALC_FOUND_ROWS * FROM noticias
+");
 
+$articulos->execute();
+$articulos = $articulos->fetchAll();
+$sliders = obtener_sliders($conexion);
 
-
-require 'views/dashboard.view.php';
+require 'views/dashpagprincipal.view.php';
 
 
 ?>

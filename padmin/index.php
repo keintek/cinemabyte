@@ -19,11 +19,14 @@ if (isset($_SESSION['usuario']))
   {
     header('Location: ../postnoadmin.php');
   }
+  else
+  {
+  	header('Location: dashboard.php');
+  }
 }
 
 
 
-require 'views/dashboard.view.php';
 
 
 ?>
